@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+<html>
+
+<body>
+
+<form method="POST" action="">
+
+<h1>Calculate Your Calories</h1>
+
+{% csrf_token %}
+
+{{ form }}
+
+<br>
+<input type="submit" value="submit"> 
+<br>
+
+<strong><h2>Over All</h2></strong>
+
+{% for i in show %}
+
+<fieldset>
+<p>{{ i.food }}</p>
+<p>{{ i.calorie }}</p>
+<p>{{ i.description }}</p>
+</fieldset>
+
+{% endfor %}
+
+
+</form>
+
+</body>
+
+</html>
