@@ -19,6 +19,9 @@
 <br>
 <input type="submit" value="submit"> 
 <br>
+<label>which one do you want to delete :</label>
+<input type="number" value="delete" name="delta" id="delta"> 
+<br>
 
 
 <fieldset>
@@ -35,6 +38,7 @@
 {% for i in show %}
 
 <fieldset>
+<p>{{ i.pk }}</p>
 <p>{{ i.food }}</p>
 <p>{{ i.calorie }}</p>
 <p>{{ i.description }}</p>

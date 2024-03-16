@@ -10,23 +10,24 @@ from .models import CalorieModel
 def ShowView(request):
     if request.method == 'POST':
         form = CalorieForm(request.POST)
+        modelloop = CalorieModel.objects.all()
+
+        try:
+            deleted = request.POST.get('delta')
+            x = CalorieModel.objects.filter(id=deleted)
+            x.delete()
+        except:
+            pass
+
         
         try:
             if form.is_valid():
                 form.save()
-                return HttpResponseRedirect('/calorie/')
         except:
-            return HttpResponseForbidden('not allowed')
-
-
-        # title = request.POST.get('food')
-        # calorie = request.POST.get('calorie')
-        # description = request.POST.get('description')
+            pass
 
     else :
         form = CalorieForm()
-
-    modelloop = CalorieModel.objects.all()
 
 
     my_list = []
@@ -34,8 +35,9 @@ def ShowView(request):
     for summ in modelloop:
         my_list.append((summ.calorie))
     x = (sum(my_list))
-    print(x)
 
+
+    
 
     context = {
         'form' : form, 
