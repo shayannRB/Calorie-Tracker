@@ -24,9 +24,21 @@ def ShowView(request):
     else :
         form = CalorieForm()
 
+    modelloop = CalorieModel.objects.all()
+
+
+    my_list = []
+
+    for summ in modelloop:
+        my_list.append((summ.calorie))
+    x = (sum(my_list))
+    print(x)
+
+
     context = {
         'form' : form, 
-        'show' : CalorieModel.objects.all()
+        'show' : CalorieModel.objects.all(),
+        'sum' : x
         }
 
     return render(request, 'html/html.html', context = context)

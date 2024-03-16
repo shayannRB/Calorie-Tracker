@@ -20,7 +20,17 @@
 <input type="submit" value="submit"> 
 <br>
 
+
+<fieldset>
 <strong><h2>Over All</h2></strong>
+<h3>{{ sum }} calories </h3>
+</fieldset>
+
+
+{% for j in show %}
+
+
+{% endfor %}
 
 {% for i in show %}
 
@@ -28,12 +38,14 @@
 <p>{{ i.food }}</p>
 <p>{{ i.calorie }}</p>
 <p>{{ i.description }}</p>
+
 </fieldset>
 
 {% endfor %}
 
-
 </form>
+
+
 
 </body>
 
