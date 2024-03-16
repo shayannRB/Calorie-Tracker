@@ -11,10 +11,12 @@ def ShowView(request):
     if request.method == 'POST':
         form = CalorieForm(request.POST)
         
-
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/calorie/')
+        try:
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('/calorie/')
+        except:
+            return HttpResponseForbidden('not allowed')
 
 
         # title = request.POST.get('food')
